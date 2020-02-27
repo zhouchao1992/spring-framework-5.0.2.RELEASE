@@ -133,30 +133,38 @@ public class DefaultListableBeanFactory extends AbstractAutowireCapableBeanFacto
 
 
 	/** Map from serialized id to factory instance */
+	/*从序列化的id映射到工厂实例*/
 	private static final Map<String, Reference<DefaultListableBeanFactory>> serializableFactories =
 			new ConcurrentHashMap<>(8);
 
 	/** Optional id for this factory, for serialization purposes */
+	/*这个工厂的可选id，用于序列化*/
 	@Nullable
 	private String serializationId;
 
 	/** Whether to allow re-registration of a different definition with the same name */
+	/*是否允许用相同的名称重新注册不同的定义*/
 	private boolean allowBeanDefinitionOverriding = true;
 
 	/** Whether to allow eager class loading even for lazy-init beans */
+	/*即使对于惰性init bean，是否允许立即加载类*/
 	private boolean allowEagerClassLoading = true;
 
 	/** Optional OrderComparator for dependency Lists and arrays */
+	/*可选的OrderComparator，用于依赖列表和数组*/
 	@Nullable
 	private Comparator<Object> dependencyComparator;
 
 	/** Resolver to use for checking if a bean definition is an autowire candidate */
+	/*解析器，用于检查bean定义是否为自动装配候选*/
 	private AutowireCandidateResolver autowireCandidateResolver = new SimpleAutowireCandidateResolver();
 
 	/** Map from dependency type to corresponding autowired value */
+	/*从依赖类型映射到相应的自动获取值*/
 	private final Map<Class<?>, Object> resolvableDependencies = new ConcurrentHashMap<>(16);
 
 	/** Map of bean definition objects, keyed by bean name */
+	/*bean定义对象的映射，由bean名称键控*/
 	private final Map<String, BeanDefinition> beanDefinitionMap = new ConcurrentHashMap<>(256);
 
 	/** Map of singleton and non-singleton bean names, keyed by dependency type */
